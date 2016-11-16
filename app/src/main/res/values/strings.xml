@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Marvel</string>
+    <string name="loading_error">Ошибка загрузки</string>
+    <string name="request_error">Ошибка в запросе</string>
+</resources>
