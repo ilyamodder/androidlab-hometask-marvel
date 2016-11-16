@@ -11,5 +11,5 @@ import ru.ilyamodder.marvel.model.ComicsData;
 
 public interface WeatherService {
     @GET("comics")
-    Call<ComicsData> getComics(@Query("dateRange") String dateRange, @Query("count") int count);
+    Call<ComicsData> getComics(@Query("dateRange") String dateRange, @Query("limit") int count);
 }

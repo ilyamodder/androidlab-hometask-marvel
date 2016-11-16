@@ -14,7 +14,7 @@ public class AndroidFieldNamingStrategy implements FieldNamingStrategy {
     @Override
     public String translateName(final Field f) {
         if (f.getName().startsWith("m")) {
-            return f.getName().substring(1, 1).toLowerCase() + f.getName().substring(2);
+            return Character.toLowerCase(f.getName().charAt(1)) + f.getName().substring(2);
         }
         else {
             throw new IllegalArgumentException("Don't know how to handle field not starting with m prefix: " + f.getName());

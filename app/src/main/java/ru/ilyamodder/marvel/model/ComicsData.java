@@ -11,7 +11,7 @@ public class ComicsData {
     private Data mData;
 
     public class Data {
-        List<Cartoon> mList;
+        List<Cartoon> mResults;
     }
 
     public class Cartoon {
@@ -48,6 +48,6 @@ public class ComicsData {
     }
 
     public List<Cartoon> getList() {
-        return mData.mList;
+        return mData.mResults;
     }
 }
