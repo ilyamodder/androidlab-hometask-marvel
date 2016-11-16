@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,10 +38,16 @@ public class ComicsAdapter extends RecyclerView.Adapter<ComicsAdapter.ViewHolder
     public void onBindViewHolder(ViewHolder holder, int position) {
         mCursor.moveToPosition(position);
         DateFormat format = SimpleDateFormat.getDateInstance();
-        holder.mDate.setText(format.format(mCursor.getLong(mCursor.getColumnIndex(ComicsTable.Columns.DATE_MODIFIED)) * 1000));
+        holder.mDate.setText(format.format(mCursor.getLong(mCursor.getColumnIndex(ComicsTable.Columns.DATE_MODIFIED))));
         holder.mTitle.setText(mCursor.getString(mCursor.getColumnIndex(ComicsTable.Columns.TITLE)));
         holder.mFormat.setText(mCursor.getString(mCursor.getColumnIndex(ComicsTable.Columns.FORMAT)));
-        holder.mDescription.setText(mCursor.getString(mCursor.getColumnIndex(ComicsTable.Columns.DESCRIPTION)));
+        String description = mCursor.getString(mCursor.getColumnIndex(ComicsTable.Columns.DESCRIPTION));
+
+        if (description != null) {
+            holder.mDescription.setText(Html.fromHtml(description));
+        } else {
+            holder.mDescription.setText("");
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
